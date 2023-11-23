@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    char choice;
+
+    do {
+        // Get user input
+        double price, taxRate;
+        int quantity;
+
+        cout << "Enter the price of the product: $";
+        cin >> price;
+
+        cout << "Enter the quantity: ";
+        cin >> quantity;
+
+        cout << "Enter the sales tax rate (in percentage): ";
+        cin >> taxRate;
+
+        // Calculate total cost
+        double totalCost = price * quantity;
+        
+        // Apply discount if quantity is 10 or more
+        if (quantity >= 10) {
+            totalCost *= 0.9;  // 10% discount
+        }
+
+        // Apply sales tax
+        totalCost *= (1 + taxRate / 100);
+
+        // Display the result
+        cout << "Total cost: $" << totalCost << endl;
+
+        // Ask user if they want to calculate for another product
+        cout << "Do you want to calculate for another product? (y/n): ";
+        cin >> choice;
+
+    } while (choice == 'y' || choice == 'Y');
+
+    return 0;
+}
